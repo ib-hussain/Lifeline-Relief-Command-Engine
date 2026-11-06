@@ -1,0 +1,315 @@
+LIFELINE - Iteration 1 validation report
+Generated 2026-11-06 09:33 with Python 3.12.7
+==============================================================================
+
+PART 1. cases.xlsx (all 50 cases)
+------------------------------------------------------------------------------
+Validating cases.xlsx
+WORKBOOK PASS  (sheets, headers, order, case ids, variety rules)
+    note: variety 1 holds in 16 tier-S cases: 18-02, 18-04, 18-05, 18-06, 18-07, 18-09, 18-10, 18-11, 18-12, 18-13, 18-14, 18-15, 18-16, 18-17, 18-18, 18-19
+    note: variety 2 holds in 11 tier-S cases: 18-00, 18-01, 18-02, 18-05, 18-06, 18-08, 18-10, 18-12, 18-14, 18-15, 18-18
+    note: variety 3 (M+L safety ratio bins): 7 low, 11 mid, 8 high
+18-00 PASS
+18-01 PASS
+18-02 PASS
+18-03 PASS
+18-04 PASS
+18-05 PASS
+18-06 PASS
+18-07 PASS
+18-08 PASS
+18-09 PASS
+18-10 PASS
+18-11 PASS
+18-12 PASS
+18-13 PASS
+18-14 PASS
+18-15 PASS
+18-16 PASS
+18-17 PASS
+18-18 PASS
+18-19 PASS
+18-20 PASS
+18-21 PASS
+18-22 PASS
+18-23 PASS
+18-24 PASS
+18-25 PASS
+18-26 PASS
+18-27 PASS
+18-28 PASS
+18-29 PASS
+18-30 PASS
+18-31 PASS
+18-32 PASS
+18-33 PASS
+18-34 PASS
+18-35 PASS
+18-36 PASS
+18-37 PASS
+18-38 PASS
+18-39 PASS
+18-40 PASS
+18-41 PASS
+18-42 PASS
+18-43 PASS
+18-44 PASS
+18-45 PASS
+18-46 PASS
+18-47 PASS
+18-48 PASS
+18-49 PASS
+Summary: 50/50 cases PASS; workbook checks PASS
+RESULT: PASS
+
+
+PART 2. Rejection of broken copies (validator/tests/)
+------------------------------------------------------------------------------
+Each broken copy holds ONE case with ONE deliberate defect. The validator runs in
+--partial mode (a single case, so the 50-case and variety rules are skipped).
+
+### valid_18-03.xlsx
+defect: case 18-03 unchanged
+expected: PASS
+Validating valid_18-03.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-03 PASS
+Summary: 1/1 cases PASS; workbook checks PASS
+RESULT: PASS
+
+### broken_18-03_1_V1.xlsx
+defect: crates header 'weight' renamed to 'wt'
+expected: V1
+Validating broken_18-03_1_V1.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK FAIL
+    [V1] crates: header is ['case_id', 'crate_id', 'cat', 'wt', 'value', 'expiry', 'serial'], expected ['case_id', 'crate_id', 'cat', 'weight', 'value', 'expiry', 'serial']
+18-03 PASS
+Summary: 1/1 cases PASS; workbook checks FAIL
+RESULT: FAIL
+
+### broken_18-03_2_V2.xlsx
+defect: crate 1 weight set to 25 kg (range 1..20)
+expected: V2
+Validating broken_18-03_2_V2.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-03 FAIL
+    [V2] crate 1 weight = 25 not in 1..20
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-03_3_V3.xlsx
+defect: two crates share the same crate_id
+expected: V3
+Validating broken_18-03_3_V3.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-03 FAIL
+    [V3] crate_id values are not exactly 1..10, each once
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-03_4_V3.xlsx
+defect: road 0 ends at location 13, which does not exist
+expected: V3
+Validating broken_18-03_4_V3.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-03 FAIL
+    [V3] road 0 v = 13 is not a location (0..7)
+    [V4] could not be checked (IndexError: list index out of range)
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-03_5_V4.xlsx
+defect: road 5 closed in wave 0 and again in wave 1
+expected: V4
+Validating broken_18-03_5_V4.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-03 FAIL
+    [V4] road 5 is in wave 0 and wave 1: waves must be disjoint
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-03_6_V5.xlsx
+defect: pattern 0 count increased by 1
+expected: V5
+Validating broken_18-03_6_V5.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-03 FAIL
+    [V5] pattern 0 count is 6, true count is 5
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-03_7_V5.xlsx
+defect: claim cargo_opt increased by 1
+expected: V5
+Validating broken_18-03_7_V5.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-03 FAIL
+    [V5] claim cargo_opt = 270, recomputed optimum is 269
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-03_8_V6.xlsx
+defect: planted switch 1 flipped, so a safety rule is violated
+expected: V6
+Validating broken_18-03_8_V6.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-03 FAIL
+    [V6] planted assignment violates 2 rules, e.g. rules [14, 20]
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-03_9_V7.xlsx
+defect: all rare (cat 4) crates relabelled (signature rule broken)
+expected: V7
+Validating broken_18-03_9_V7.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-03 FAIL
+    [V7] study 4: rare crates below 10%
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### valid_18-25.xlsx
+defect: case 18-25 unchanged
+expected: PASS
+Validating valid_18-25.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-25 PASS
+Summary: 1/1 cases PASS; workbook checks PASS
+RESULT: PASS
+
+### broken_18-25_1_V1.xlsx
+defect: crates header 'weight' renamed to 'wt'
+expected: V1
+Validating broken_18-25_1_V1.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK FAIL
+    [V1] crates: header is ['case_id', 'crate_id', 'cat', 'wt', 'value', 'expiry', 'serial'], expected ['case_id', 'crate_id', 'cat', 'weight', 'value', 'expiry', 'serial']
+18-25 PASS
+Summary: 1/1 cases PASS; workbook checks FAIL
+RESULT: FAIL
+
+### broken_18-25_2_V2.xlsx
+defect: crate 1 weight set to 25 kg (range 1..20)
+expected: V2
+Validating broken_18-25_2_V2.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-25 FAIL
+    [V2] crate 1 weight = 25 not in 1..20
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-25_3_V3.xlsx
+defect: two crates share the same crate_id
+expected: V3
+Validating broken_18-25_3_V3.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-25 FAIL
+    [V3] crate_id values are not exactly 1..107, each once
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-25_4_V4.xlsx
+defect: every road of location 66 removed (1 road(s)), cutting it off
+expected: V4
+Validating broken_18-25_4_V4.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-25 FAIL
+    [V4] network is not connected before closures: 1 locations unreachable from the HQ (e.g. [66])
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-25_5_V4.xlsx
+defect: road 1 closed in wave 0 and again in wave 1
+expected: V4
+Validating broken_18-25_5_V4.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-25 FAIL
+    [V4] road 1 is in wave 0 and wave 1: waves must be disjoint
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-25_6_V5.xlsx
+defect: edit_bound set to 0 (below the true edit distance)
+expected: V5
+Validating broken_18-25_6_V5.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-25 FAIL
+    [V5] edit_bound 0 is below the true edit distance 5
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-25_7_V6.xlsx
+defect: tour_length increased by 7
+expected: V6
+Validating broken_18-25_7_V6.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-25 FAIL
+    [V6] tour_length 4083 but the planted tour's closed Manhattan length is 4076
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-25_8_V6.xlsx
+defect: rations_target increased by 1 (planted selection no longer sums to it)
+expected: V6
+Validating broken_18-25_8_V6.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-25 FAIL
+    [V6] planted rations sum to 2249, rations_target is 2250
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-25_9_V7.xlsx
+defect: all medicine/tool (cat 2, 3) crates relabelled (signature rule broken)
+expected: V7
+Validating broken_18-25_9_V7.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-25 FAIL
+    [V7] study 2: medicine+tool crates below 45%
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### valid_18-47.xlsx
+defect: case 18-47 unchanged
+expected: PASS
+Validating valid_18-47.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-47 PASS
+Summary: 1/1 cases PASS; workbook checks PASS
+RESULT: PASS
+
+### broken_18-47_1_V8.xlsx
+defect: decoy crate made 20 kg, so greedy-by-ratio becomes optimal
+expected: V8
+Validating broken_18-47_1_V8.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-47 FAIL
+    [V8] best-looking-crate trap: greedy reaches 200 of 200 (> 60%)
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+
+PART 3. Summary of the test workbooks
+------------------------------------------------------------------------------
+OK       valid_18-03.xlsx                   expected PASS  got PASS
+OK       broken_18-03_1_V1.xlsx             expected V1    got REJECTED by V1
+OK       broken_18-03_2_V2.xlsx             expected V2    got REJECTED by V2
+OK       broken_18-03_3_V3.xlsx             expected V3    got REJECTED by V3
+OK       broken_18-03_4_V3.xlsx             expected V3    got REJECTED by V3,V4
+OK       broken_18-03_5_V4.xlsx             expected V4    got REJECTED by V4
+OK       broken_18-03_6_V5.xlsx             expected V5    got REJECTED by V5
+OK       broken_18-03_7_V5.xlsx             expected V5    got REJECTED by V5
+OK       broken_18-03_8_V6.xlsx             expected V6    got REJECTED by V6
+OK       broken_18-03_9_V7.xlsx             expected V7    got REJECTED by V7
+OK       valid_18-25.xlsx                   expected PASS  got PASS
+OK       broken_18-25_1_V1.xlsx             expected V1    got REJECTED by V1
+OK       broken_18-25_2_V2.xlsx             expected V2    got REJECTED by V2
+OK       broken_18-25_3_V3.xlsx             expected V3    got REJECTED by V3
+OK       broken_18-25_4_V4.xlsx             expected V4    got REJECTED by V4
+OK       broken_18-25_5_V4.xlsx             expected V4    got REJECTED by V4
+OK       broken_18-25_6_V5.xlsx             expected V5    got REJECTED by V5
+OK       broken_18-25_7_V6.xlsx             expected V6    got REJECTED by V6
+OK       broken_18-25_8_V6.xlsx             expected V6    got REJECTED by V6
+OK       broken_18-25_9_V7.xlsx             expected V7    got REJECTED by V7
+OK       valid_18-47.xlsx                   expected PASS  got PASS
+OK       broken_18-47_1_V8.xlsx             expected V8    got REJECTED by V8
+
+OVERALL: all 50 cases PASS and every broken copy is rejected for the expected rule
