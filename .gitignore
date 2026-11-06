@@ -8,3 +8,5 @@ ProjectPhase*.pdf
 *.zip
 temp*.txt
 *roposal*.pdf
+**cache**
+**cache**/
