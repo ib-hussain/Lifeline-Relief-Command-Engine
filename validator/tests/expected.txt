@@ -1,0 +1,23 @@
+# file | expected result | defect
+valid_18-03.xlsx | PASS | case 18-03 unchanged
+broken_18-03_1_V1.xlsx | V1 | crates header 'weight' renamed to 'wt'
+broken_18-03_2_V2.xlsx | V2 | crate 1 weight set to 25 kg (range 1..20)
+broken_18-03_3_V3.xlsx | V3 | two crates share the same crate_id
+broken_18-03_4_V3.xlsx | V3 | road 0 ends at location 13, which does not exist
+broken_18-03_5_V4.xlsx | V4 | road 5 closed in wave 0 and again in wave 1
+broken_18-03_6_V5.xlsx | V5 | pattern 0 count increased by 1
+broken_18-03_7_V5.xlsx | V5 | claim cargo_opt increased by 1
+broken_18-03_8_V6.xlsx | V6 | planted switch 1 flipped, so a safety rule is violated
+broken_18-03_9_V7.xlsx | V7 | all rare (cat 4) crates relabelled (signature rule broken)
+valid_18-25.xlsx | PASS | case 18-25 unchanged
+broken_18-25_1_V1.xlsx | V1 | crates header 'weight' renamed to 'wt'
+broken_18-25_2_V2.xlsx | V2 | crate 1 weight set to 25 kg (range 1..20)
+broken_18-25_3_V3.xlsx | V3 | two crates share the same crate_id
+broken_18-25_4_V4.xlsx | V4 | every road of location 66 removed (1 road(s)), cutting it off
+broken_18-25_5_V4.xlsx | V4 | road 1 closed in wave 0 and again in wave 1
+broken_18-25_6_V5.xlsx | V5 | edit_bound set to 0 (below the true edit distance)
+broken_18-25_7_V6.xlsx | V6 | tour_length increased by 7
+broken_18-25_8_V6.xlsx | V6 | rations_target increased by 1 (planted selection no longer sums to it)
+broken_18-25_9_V7.xlsx | V7 | all medicine/tool (cat 2, 3) crates relabelled (signature rule broken)
+valid_18-47.xlsx | PASS | case 18-47 unchanged
+broken_18-47_1_V8.xlsx | V8 | decoy crate made 20 kg, so greedy-by-ratio becomes optimal
