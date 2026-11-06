@@ -1,0 +1,106 @@
+{
+  "source": "cases.xlsx",
+  "sheet_count": 20,
+  "files": [
+    {
+      "file": "cases.csv",
+      "rows": 50,
+      "sha256": "735aacabc91b5223e9a4f29337d3163ca0d68a2ba1d56c9f42d9d22e77ea74c0"
+    },
+    {
+      "file": "crates.csv",
+      "rows": 12534,
+      "sha256": "4bfef64c9d0772999381d0ceb04b2208d903b55577d9b5222c57285c59062da8"
+    },
+    {
+      "file": "locations.csv",
+      "rows": 15004,
+      "sha256": "59289c64359d6ea39b92dd39a852fbb4ed6664a47a2866f7f5a30cd0fc0d5d9a"
+    },
+    {
+      "file": "roads.csv",
+      "rows": 21232,
+      "sha256": "683a20d5d26480eb7513f206c817cddc1c122718c6e7f67c2f4ba8403d1d1fb6"
+    },
+    {
+      "file": "waves.csv",
+      "rows": 2790,
+      "sha256": "2e151855747bd6f21927af8bf0c1a489ef2d9b17e8611048613ab1eb7d246bd9"
+    },
+    {
+      "file": "radio_log.csv",
+      "rows": 106,
+      "sha256": "4e6b5bf2ef3e0dbff9806febd9d605fa32989e8fe4636867939b2d5d4ac877b8"
+    },
+    {
+      "file": "radio_patterns.csv",
+      "rows": 300,
+      "sha256": "4c463385f308b5f92270b3ceaf891478a1df109fd43cf9f197255079824717dc"
+    },
+    {
+      "file": "radio_reports.csv",
+      "rows": 50,
+      "sha256": "3f9967f1aa0a503c59beddd56a4771822b51d572682e9b5938ab98058c7bb5d2"
+    },
+    {
+      "file": "windows.csv",
+      "rows": 25011,
+      "sha256": "91ed80a041f980f3dda3ebf277ba7a2941d6c494605e63aaa49d6b5083eca24e"
+    },
+    {
+      "file": "incidents.csv",
+      "rows": 51459,
+      "sha256": "1ab062a5b00c6cb4cbd67d60ef28f18325b7dfa193755a5fcb9a30c7ea1c6ad1"
+    },
+    {
+      "file": "sites.csv",
+      "rows": 3847,
+      "sha256": "ff1caf9e7809509d9ce2decd2d1ba7c362b2a696809ba8a12fa1de42c77d4b18"
+    },
+    {
+      "file": "tour.csv",
+      "rows": 3847,
+      "sha256": "2ae41fd207f34614b70e1b8af116dae3552e53c8e7c3e0caf7b1fe996a99a617"
+    },
+    {
+      "file": "pipeline_dims.csv",
+      "rows": 2749,
+      "sha256": "1736504402aa3a15b24c8281628c7fe3263595c79252ba440c0bed0948323b28"
+    },
+    {
+      "file": "drum_prices.csv",
+      "rows": 15301,
+      "sha256": "8ef8566e54f8ad53fabc25893c2826c2d23d728b103396cf8b63b30fc4729e18"
+    },
+    {
+      "file": "sensor_edges.csv",
+      "rows": 7476,
+      "sha256": "8aa668bfc4edc85f06ae76d3ecf401af3ea0711db0dae6d9fed0a954df6c4c5b"
+    },
+    {
+      "file": "sensor_cover.csv",
+      "rows": 736,
+      "sha256": "869697d3d2856be9b3bc8fa4852e193f82a215a41eb7eeb9328566894787c74a"
+    },
+    {
+      "file": "safety_rules.csv",
+      "rows": 4839,
+      "sha256": "298aa7c45fc551f9ed7d5468385dc8b0fbf3905abdd0544d99734a8387aaf275"
+    },
+    {
+      "file": "safety_planted.csv",
+      "rows": 1188,
+      "sha256": "8824cca663e7708ecad317b572dc3e112bbfdfdce1c9b2ffacc40503aaa4229c"
+    },
+    {
+      "file": "rations.csv",
+      "rows": 1624,
+      "sha256": "a0005831b445f28a6a20ce9cd34273815c3249bea189fd8ce867127ed564b8a5"
+    },
+    {
+      "file": "claims.csv",
+      "rows": 20,
+      "sha256": "cb34372bd930df69ee9a838a92efe187a0eaa96f7fd107c7c4cf51624679a821"
+    }
+  ]
+}
