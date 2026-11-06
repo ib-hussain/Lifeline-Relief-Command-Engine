@@ -23,7 +23,7 @@ Expected content SHA-256 of `cases.xlsx` for seed 18 (printed by the generator):
 | Validator | `validator/`, with test workbooks in `validator/tests/` |
 | Validator output | `validation_report.txt` |
 | Approach note | `approach.pdf` (to be written) |
-| Proposal | `proposal.pdf` (to be written) |
+| Proposal (2 pages) | `proposal.pdf`, built by `python docs/make_proposal.py proposal.pdf` |
 | Repository link | `repository.txt` |
 | Members | `members.txt` |
 
