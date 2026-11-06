@@ -1,3 +1,10 @@
-__pycache__/
-*.pyc
-~$*.xlsx
+members.txt
+APPROACH.md
+Aprroach**
+reposito*.txt
+validation_report.txt
+# Course brief is a reference, not a deliverable
+ProjectPhase*.pdf
+*.zip
+temp*.txt
+*roposal*.pdf

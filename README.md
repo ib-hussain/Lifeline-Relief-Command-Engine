@@ -12,8 +12,14 @@ python validator/tests/make_broken.py cases.xlsx
 python validator/make_report.py cases.xlsx validation_report.txt
 ```
 
-Expected content SHA-256 of `cases.xlsx` for seed 18 (printed by the generator):
-`4c569e38aaedf5feec1b53c0898f5ff3fe3a61304ac70e67a11a9f6655a6ceb0`
+## Reproducibility fingerprint
+
+Seed 18 expected **content SHA-256** (all workbook cells; not raw XLSX ZIP bytes):
+`4c569e38aaedf5feec1b53c0898f5ff3fe3a61304ac70e67a11a9f6655a6ceb0`.
+
+CSV export (one file per sheet): `python data/populate.py`. These are **derived artifacts**, not input data.
+
+Build the two-page approach PDF with `python docs/make_approach.py approach_note.pdf`; build the two-page proposal with `python docs/make_proposal.py proposal.pdf`.
 
 ## Contents
 | Item | Where |
@@ -21,9 +27,9 @@ Expected content SHA-256 of `cases.xlsx` for seed 18 (printed by the generator):
 | 50 cases | `cases.xlsx` (written by the generator, never edited by hand) |
 | Generator | `generator/` (see `generator/README.md`) |
 | Validator | `validator/`, with test workbooks in `validator/tests/` |
-| Validator output | `validation_report.txt` |
-| Approach note | `approach.pdf` (to be written) |
-| Proposal (2 pages) | `proposal.pdf`, built by `python docs/make_proposal.py proposal.pdf` |
+| Validator output | `validation_report.txt` (all 50 valid; 25 deliberate mutants of three cases rejected) |
+| Approach note | `APPROACH.md` (source) and `approach_note.pdf` (two-page export) |
+| Proposal (2 pages) | `proposal.pdf`, built by `python docs/make_proposal.py proposal.pdf` (all A-I modules proposed) |
 | Repository link | `repository.txt` |
 | Members | `members.txt` |
 
@@ -55,4 +61,4 @@ Expected content SHA-256 of `cases.xlsx` for seed 18 (printed by the generator):
 | Variety 3 (safety ratio bins over M+L) | 7 low / 11 mid / 8 high planned | V7 |
 | Variety 4 (no equal modules) | independent random streams per case and module | V7 |
 | Traps 46 to 49 | `traps.py` (each asserts its own rule) | V8 |
-| Reject bad data | 19 broken copies of 3 valid cases | `validation_report.txt` |
+| Reject bad data | 25 broken copies of 3 valid cases | `validation_report.txt` |

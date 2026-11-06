@@ -1,5 +1,5 @@
 LIFELINE - Iteration 1 validation report
-Generated 2026-11-06 09:33 with Python 3.12.7
+Generated 2026-11-06 15:14 with Python 3.13.5
 ==============================================================================
 
 PART 1. cases.xlsx (all 50 cases)
@@ -276,10 +276,71 @@ WORKBOOK PASS  (sheets, headers, order, case ids)
 Summary: 1/1 cases PASS; workbook checks PASS
 RESULT: PASS
 
-### broken_18-47_1_V8.xlsx
+### broken_18-47_1_V1.xlsx
+defect: crates header 'weight' renamed to 'wt'
+expected: V1
+Validating broken_18-47_1_V1.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK FAIL
+    [V1] crates: header is ['case_id', 'crate_id', 'cat', 'wt', 'value', 'expiry', 'serial'], expected ['case_id', 'crate_id', 'cat', 'weight', 'value', 'expiry', 'serial']
+18-47 PASS
+Summary: 1/1 cases PASS; workbook checks FAIL
+RESULT: FAIL
+
+### broken_18-47_2_V2.xlsx
+defect: crate 1 weight set to 25 kg (range 1..20)
+expected: V2
+Validating broken_18-47_2_V2.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-47 FAIL
+    [V2] crate 1 weight = 25 not in 1..20
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-47_3_V3.xlsx
+defect: two crates share the same crate_id
+expected: V3
+Validating broken_18-47_3_V3.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-47 FAIL
+    [V3] crate_id values are not exactly 1..20, each once
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-47_4_V3.xlsx
+defect: road 0 ends at location 1201, which does not exist
+expected: V3
+Validating broken_18-47_4_V3.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-47 FAIL
+    [V3] road 0 v = 1201 is not a location (0..1195)
+    [V4] could not be checked (IndexError: list index out of range)
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-47_5_V5.xlsx
+defect: pattern 0 count increased by 1
+expected: V5
+Validating broken_18-47_5_V5.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-47 FAIL
+    [V5] pattern 0 count is 76, true count is 75
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-47_6_V6.xlsx
+defect: tour_length increased by 7
+expected: V6
+Validating broken_18-47_6_V6.xlsx  (partial workbook: count and variety rules skipped)
+WORKBOOK PASS  (sheets, headers, order, case ids)
+18-47 FAIL
+    [V6] tour_length 14805 but the planted tour's closed Manhattan length is 14798
+Summary: 0/1 cases PASS; workbook checks PASS
+RESULT: FAIL
+
+### broken_18-47_7_V8.xlsx
 defect: decoy crate made 20 kg, so greedy-by-ratio becomes optimal
 expected: V8
-Validating broken_18-47_1_V8.xlsx  (partial workbook: count and variety rules skipped)
+Validating broken_18-47_7_V8.xlsx  (partial workbook: count and variety rules skipped)
 WORKBOOK PASS  (sheets, headers, order, case ids)
 18-47 FAIL
     [V8] best-looking-crate trap: greedy reaches 200 of 200 (> 60%)
@@ -310,6 +371,12 @@ OK       broken_18-25_7_V6.xlsx             expected V6    got REJECTED by V6
 OK       broken_18-25_8_V6.xlsx             expected V6    got REJECTED by V6
 OK       broken_18-25_9_V7.xlsx             expected V7    got REJECTED by V7
 OK       valid_18-47.xlsx                   expected PASS  got PASS
-OK       broken_18-47_1_V8.xlsx             expected V8    got REJECTED by V8
+OK       broken_18-47_1_V1.xlsx             expected V1    got REJECTED by V1
+OK       broken_18-47_2_V2.xlsx             expected V2    got REJECTED by V2
+OK       broken_18-47_3_V3.xlsx             expected V3    got REJECTED by V3
+OK       broken_18-47_4_V3.xlsx             expected V3    got REJECTED by V3,V4
+OK       broken_18-47_5_V5.xlsx             expected V5    got REJECTED by V5
+OK       broken_18-47_6_V6.xlsx             expected V6    got REJECTED by V6
+OK       broken_18-47_7_V8.xlsx             expected V8    got REJECTED by V8
 
 OVERALL: all 50 cases PASS and every broken copy is rejected for the expected rule

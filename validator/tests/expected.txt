@@ -20,4 +20,10 @@ broken_18-25_7_V6.xlsx | V6 | tour_length increased by 7
 broken_18-25_8_V6.xlsx | V6 | rations_target increased by 1 (planted selection no longer sums to it)
 broken_18-25_9_V7.xlsx | V7 | all medicine/tool (cat 2, 3) crates relabelled (signature rule broken)
 valid_18-47.xlsx | PASS | case 18-47 unchanged
-broken_18-47_1_V8.xlsx | V8 | decoy crate made 20 kg, so greedy-by-ratio becomes optimal
+broken_18-47_1_V1.xlsx | V1 | crates header 'weight' renamed to 'wt'
+broken_18-47_2_V2.xlsx | V2 | crate 1 weight set to 25 kg (range 1..20)
+broken_18-47_3_V3.xlsx | V3 | two crates share the same crate_id
+broken_18-47_4_V3.xlsx | V3 | road 0 ends at location 1201, which does not exist
+broken_18-47_5_V5.xlsx | V5 | pattern 0 count increased by 1
+broken_18-47_6_V6.xlsx | V6 | tour_length increased by 7
+broken_18-47_7_V8.xlsx | V8 | decoy crate made 20 kg, so greedy-by-ratio becomes optimal

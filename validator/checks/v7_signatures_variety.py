@@ -103,7 +103,12 @@ def _module_signatures(c):
         return tuple(tuple(v for kk, v in sorted(r.items()) if kk not in drop) for r in c.sheets[sheet])
     yield "crates", len(c.crates), rows("crates")
     yield "network", len(c.locations), (rows("locations"), rows("roads"))
+    yield "waves", len(c.waves), rows("waves")
     yield "radio", len(c.log()), c.log()
+    # reports and patterns are strings: their size is their number of symbols
+    ra = c.radio_reports[0] if c.radio_reports else {"report_a": "", "report_b": ""}
+    yield "radio_reports", len(ra["report_a"]) + len(ra["report_b"]), (ra["report_a"], ra["report_b"])
+    yield "radio_patterns", sum(len(r["pattern"]) for r in c.radio_patterns), rows("radio_patterns", drop=("case_id", "count"))
     yield "windows", len(c.windows), rows("windows")
     yield "incidents", len(c.incidents), rows("incidents")
     yield "tour", len(c.sites), (rows("sites"), rows("tour"))

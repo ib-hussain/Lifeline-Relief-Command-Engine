@@ -158,7 +158,8 @@ PLAN = {
               m_pattern_count, m_claim, m_planted_switch, m_signature_cats({4}, "rare (cat 4)")],
     "18-25": [m_header, m_weight, m_duplicate_id, m_disconnect, m_wave_overlap, m_edit_bound,
               m_tour_length, m_rations, m_signature_cats({2, 3}, "medicine/tool (cat 2, 3)")],
-    "18-47": [m_trap47],
+    "18-47": [m_header, m_weight, m_duplicate_id, m_bad_road_end,
+              m_pattern_count, m_tour_length, m_trap47],
 }
 
 

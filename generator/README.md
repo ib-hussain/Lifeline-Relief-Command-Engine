@@ -10,7 +10,7 @@ python generator/generate.py --seed 18 --out cases.xlsx
 
 It prints one line per case and the **content SHA-256** of all cells. The xlsx zip stores
 timestamps, so compare this hash, not the file bytes, to prove that a rerun reproduces the data.
-The expected hash for seed 18 is in the repository's top-level `README.md`.
+Expected content SHA-256 for seed 18: `4c569e38aaedf5feec1b53c0898f5ff3fe3a61304ac70e67a11a9f6655a6ceb0` (also in the root `README.md`).
 
 ## Determinism
 All randomness comes from `make_rng(seed, case_no, module, attempt)` in `common.py`, which is a
